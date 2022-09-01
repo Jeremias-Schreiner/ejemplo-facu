@@ -29,6 +29,7 @@ boton_agregar.addEventListener(
                         return a.apellido.localeCompare(b.apellido)
                     }
                 )
+                document.getElementById("resultado_id").innerHTML = `${persona.nombre} ${persona.apellido} cargado correctamente!`
                 nombre_input.value = ""
                 apellido_input.value = ""
             }
