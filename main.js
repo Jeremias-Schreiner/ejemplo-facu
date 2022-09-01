@@ -2,11 +2,12 @@
 
 let personas_lista = []
 
-
 const boton_agregar = document.getElementById("agregar_id")
+const boton_mostrar = document.getElementById("mostrar_id")
+
 boton_agregar.addEventListener(
     "click",
-    (event)=>{
+    (e)=>{
         let nombre_input = document.getElementById("nombre_id")
 
         //si el imput no esta vacio
@@ -28,7 +29,8 @@ boton_agregar.addEventListener(
                         return a.apellido.localeCompare(b.apellido)
                     }
                 )
-
+                nombre_input.value = ""
+                apellido_input.value = ""
             }
             else{
                 alert("Apellido no puede estar vacio!")
@@ -39,4 +41,17 @@ boton_agregar.addEventListener(
         }
     }
 
+)
+
+boton_mostrar.addEventListener(
+    "click",
+    (e)=>{
+        let resultado = document.getElementById("resultado_id")
+        resultado.innerHTML = ""
+
+        for (let persona of personas_lista){
+            resultado.innerHTML += `${persona.nombre} ${persona.apellido} <br>`
+        }
+
+    }
 )
